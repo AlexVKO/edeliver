@@ -889,9 +889,7 @@ __get_node_command() {
 force_start_release() {
   __exec_if_defined "pre_start_deployed_release"
   status "Starting deployed release"
-  __remote "{
-    $(__get_node_command "restart" "$DELIVER_TO" "")
-  }"
+  __exec_if_defined "start_deployed_release"
   __exec_if_defined "post_start_deployed_release"
 }
 
